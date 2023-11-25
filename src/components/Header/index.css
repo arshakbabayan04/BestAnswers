@@ -5,3 +5,37 @@
     font-weight: 700;
     color: white;
 }
+
+.nav-link {
+    color: white;
+    position: relative;
+    font-weight: 400;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(254 220 140);
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+}
+

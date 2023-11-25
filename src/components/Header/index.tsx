@@ -4,18 +4,18 @@ import "./index.css";
 
 const Header: FC = () => {
     const activeClazz =
-        "bg-gray-900 inline-block border-l border-t border-r border-black rounded-t py-2 px-4 text-white font-semibold";
+        "nav-link active-link";
     const defaultClazz =
-        "bg-gray-800 inline-block py-2 px-4 text-white hover:bg-gray-700 font-semibold";
+        "nav-link";
 
     return (
         <>
-            <header className="w-full fixed bg-gray-600 border-b-4 border-gray-900">
+            <header className="w-full h-10 fixed bg-inherit pt-2">
                 <div className="container mx-auto">
                     <div className="header_wrapper flex justify-between items-center">
-                        <div className="header_logo">Best Answers</div>
+                        <div className="header_logo text-xl">Best Answers</div>
                         <nav>
-                            <ul className="flex border-gray-900">
+                            <ul className="flex border-gray-900 gap-5 text-lg">
                                 <li className="-mb-px mr-1">
                                     <NavLink
                                         className={({ isActive }) =>
