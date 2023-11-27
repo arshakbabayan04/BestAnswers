@@ -3,17 +3,17 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./index.css";
 
 const Header: FC = () => {
-    const activeClazz =
-        "nav-link active-link";
-    const defaultClazz =
-        "nav-link";
+    const activeClazz = "nav-link active-link";
+    const defaultClazz = "nav-link";
 
     return (
         <>
             <header className="w-full h-10 fixed bg-inherit pt-2">
                 <div className="container mx-auto">
                     <div className="header_wrapper flex justify-between items-center">
-                        <div className="header_logo text-xl">Best Answers</div>
+                        <NavLink to="/" className="header_logo block text-xl">
+                            Best Answers
+                        </NavLink>
                         <nav>
                             <ul className="flex border-gray-900 gap-5 text-lg">
                                 <li className="-mb-px mr-1">

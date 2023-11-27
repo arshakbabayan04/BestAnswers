@@ -13,10 +13,10 @@
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: white;
-    left: 0;
+    left: 50%;
     bottom: -5px;
     height: 2px;
     width: 0;
@@ -27,15 +27,15 @@
 .nav-link:hover::after {
     width: 100%;
     opacity: 1;
+    left: 0;
 }
 
 .active-link::after {
-    content: '';
+    content: "";
     position: absolute;
-    background-color: rgb(254 220 140);
+    background-color: white;
     left: 0;
     bottom: -5px;
     height: 2px;
     width: 100%;
 }
-

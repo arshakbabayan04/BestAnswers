@@ -62,7 +62,7 @@ const AddQuestion: FC = () => {
                                                 name="question"
                                                 as="textarea"
                                                 id="question"
-                                                className="w-full px-0 text-sm border-0 text-gray-900 bg-white border-0s dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                                                className="w-full px-0 text-sm border-0 text-gray-900 bg-white border-0s focus:outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
                                                 placeholder="Write a question..."
                                             ></Field>
                                             {errors.question &&

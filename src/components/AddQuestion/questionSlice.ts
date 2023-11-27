@@ -1,16 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Category, Question } from "../../types";
+import { Category, Comment, Question } from "../../types";
 import { fetchCategory } from "./categoryApi";
-import { addQuestion, fetchQuestion } from "./questionApi";
+import {
+    addComment,
+    addQuestion,
+    fetchQuestion,
+    fetchSingleQuestion,
+    likeComment,
+    likeQuestion,
+} from "./questionApi";
 
 interface questionState {
     questions: Question[];
     categories: Category[];
+    question: Question | null;
 }
 
 const initialState: questionState = {
     questions: [],
     categories: [],
+    question: {} as Question,
 };
 
 const questionSlice = createSlice({
@@ -25,8 +34,34 @@ const questionSlice = createSlice({
             .addCase(addQuestion.fulfilled, () => {
                 console.log("Data Posted!!! :)");
             })
+            .addCase(addComment.fulfilled, (state, action) => {
+                console.log(action.payload);
+                state.question?.comments.push(action.payload.comment);
+            })
+            .addCase(likeComment.fulfilled, (state, action) => {
+                console.log(action.payload);
+                let comment: Comment =
+                    state.question?.comments.find(
+                        (el: Comment) => el.id === action.payload
+                    ) || ({} as Comment);
+                comment.likeCount++;
+            })
+            .addCase(likeQuestion.fulfilled, (state, action) => {
+                console.log(action.payload);
+                // let comment: Comment =
+                //     state.question?.comments.find(
+                //         (el: Comment) => el.id === action.payload
+                //     ) || ({} as Comment);
+                let quest: Question =
+                    state.questions.find((el) => el.id === action.payload) ||
+                    ({} as Question);
+                quest.likeCount++;
+            })
             .addCase(fetchQuestion.fulfilled, (state, action) => {
                 state.questions = action.payload;
+            })
+            .addCase(fetchSingleQuestion.fulfilled, (state, action) => {
+                state.question = action.payload;
             });
     },
 });
