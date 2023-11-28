@@ -11,11 +11,11 @@ const TopQuestions: FC = () => {
     const [name, setName] = useState("");
     const dispatch = useAppDispatch();
 
+    const { questions } = useAppSelector((state) => state.question);
+
     useEffect(() => {
         dispatch(fetchQuestion());
     }, []);
-
-    const { questions } = useAppSelector((state) => state.question);
 
     const filteredQuestions = useMemo(() => {
         return questions.filter((el) => {
@@ -84,6 +84,7 @@ const TopQuestions: FC = () => {
                                                     dispatch(
                                                         likeQuestion(el.id)
                                                     );
+                                                    dispatch(fetchQuestion());
                                                 }
                                             }}
                                             className="ml-2 mr-1.5"

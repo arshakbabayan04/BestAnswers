@@ -48,10 +48,6 @@ const questionSlice = createSlice({
             })
             .addCase(likeQuestion.fulfilled, (state, action) => {
                 console.log(action.payload);
-                // let comment: Comment =
-                //     state.question?.comments.find(
-                //         (el: Comment) => el.id === action.payload
-                //     ) || ({} as Comment);
                 let quest: Question =
                     state.questions.find((el) => el.id === action.payload) ||
                     ({} as Question);
